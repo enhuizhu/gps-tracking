@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, TextInput, Image} from 'react-native';
+import { formStyles } from '../../styles/form';
 
 export class Login extends React.Component {
   constructor() {
@@ -15,7 +16,7 @@ export class Login extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
+        <View style={formStyles.formControlGroup}>
           <Image source={require('../../assets/user.png')}></Image>
           <TextInput value={this.state.username} placeholder="username"></TextInput>
         </View>
