@@ -1,7 +1,18 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from './vars';
 
 export const formStyles = StyleSheet.create({
   formControlGroup: {
-    margin: '10 0',
+    marginTop: 10,
+    marginBottom: 10,
+    flexDirection: "row",
+    // flex: 1,
+  },
+  primaryBg: {
+    backgroundColor: 'red',
+  },
+  btn: {
+    borderRadius: 5,
+    width: '90%',
   }
 });

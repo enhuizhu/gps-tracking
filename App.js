@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
-import { Login } from './components/login/Login';
+import { Login } from './pages/Login';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default function App() {
