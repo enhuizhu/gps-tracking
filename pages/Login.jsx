@@ -6,10 +6,10 @@ import {
   TextInput, 
   Image, 
   Alert,
-  
 } from 'react-native';
 import { formStyles } from '../styles/form';
 import { UIButton } from '../components/Button/button';
+import { Store } from '../store/store';
 
 export class Login extends React.Component {
   constructor() {
