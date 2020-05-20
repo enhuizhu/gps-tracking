@@ -23,14 +23,13 @@ function reducer(state, action) {
     default:
       return state;
   }
-
 }
 
+const [state, dispatch] = React.useReducer(reducer, InitialState);
+export const store = { state, dispatch };
+
 export function StoreProvider(props) {
-  const [state, dispatch] = React.useReducer(reducer, InitialState);
-  const value = { state, dispatch };
-  
-  return <Store.Provider value={value}>
+  return <Store.Provider value={props.store}>
     {props.children}
   </Store.Provider>
 }

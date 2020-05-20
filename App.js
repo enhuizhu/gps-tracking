@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import { Login } from './pages/Login';
-import { Store, StoreProvider } from './store/store';
+import { Store, StoreProvider, store} from './store/store';
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
       source={require('./assets/bg.jpg')}
       style={{width: '100%', height: '100%'}}
     >
-      <StoreProvider>
+      <StoreProvider store={store}>
         <View style={styles.container}>
           <Test></Test>
           <Login></Login>

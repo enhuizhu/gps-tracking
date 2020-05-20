@@ -28,6 +28,16 @@ export class Login extends React.Component {
       });
     }
   }
+
+  login = () => {
+    if (this.state.password === '' || this.state.username === '') {
+      Alert.alert('password or username can not be empty!');
+      return ;
+    }
+
+    
+
+  }
   
   render() {
     return (
