@@ -10,6 +10,8 @@ import {
 import { formStyles } from '../styles/form';
 import { UIButton } from '../components/Button/button';
 import { Store } from '../store/store';
+import { ConnectStore } from '../utils/reducer.util';
+import { receiveUserInfo } from '../actions/user.action';
 
 export class Login extends React.Component {
   constructor() {
@@ -21,6 +23,10 @@ export class Login extends React.Component {
     }
   }
 
+  componentDidMount() {
+    console.log('this props', this.props);
+  }
+
   handleChange(stateName) {
     return (e) => {
       this.setState({
@@ -30,16 +36,18 @@ export class Login extends React.Component {
   }
 
   login = () => {
+    this.props.store.dispatch(receiveUserInfo({token: Math.random()}))
+    
     if (this.state.password === '' || this.state.username === '') {
       Alert.alert('password or username can not be empty!');
       return ;
     }
 
-    
-
   }
   
   render() {
+    console.log('new state', this.props.store.state);
+
     return (
       <View style={styles.container}>
         <View style={formStyles.formControlGroup}>
@@ -72,7 +80,7 @@ export class Login extends React.Component {
           <UIButton 
             title='Login'
             style={{flex: 0.9, marginTop: 10, marginBottom: 10,}}
-            onPress={() => Alert.alert('simple button pressed')}
+            onPress={this.login}
           />
         </View>
         <View>
@@ -87,6 +95,8 @@ export class Login extends React.Component {
     );
   }
 }
+
+export default ConnectStore(Login, Store);
 
 const styles = StyleSheet.create({
   container: {
