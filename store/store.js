@@ -1,12 +1,6 @@
-import React from 'react';
-import reducers from '../reducers';
 
-export const Store = React.createContext();
+import {createStore, applyMiddleware} from 'redux';
+import allReducers from '../reducers/';
+import thunk from 'redux-thunk';
 
-export function StoreProvider(props) {
-  const [ state, dispatch ] = React.useReducer(reducers, {});
-
-  return <Store.Provider value={{state, dispatch}}>
-    {props.children}
-  </Store.Provider>
-}
+export const store = createStore(allReducers, applyMiddleware(thunk));

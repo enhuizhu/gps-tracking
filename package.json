@@ -6,20 +6,29 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "react-native:link": "react-native link",
     "eject": "expo eject"
   },
   "jest": {
     "preset": "react-native"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/geolocation": "^1.4.2",
     "expo": "~36.0.0",
     "install": "^0.13.0",
+    "lodash": "^4.17.15",
     "npm": "^6.14.5",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-get-location": "^1.4.2",
     "react-native-linear-gradient": "^2.5.6",
-    "react-native-web": "~0.11.7"
+    "react-native-maps": "^0.27.1",
+    "react-native-web": "~0.11.7",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

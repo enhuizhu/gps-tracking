@@ -1,6 +1,8 @@
 import { userInfo } from './userInfo.reducer';
-import { CombineReducers } from '../utils/reducer.util';
+import { loader } from './loader.reducer';
+import { combineReducers } from 'redux';
 
-export default CombineReducers({
-  userInfo
+export default combineReducers({
+  userInfo,
+  loader,
 });
