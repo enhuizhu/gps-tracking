@@ -12,6 +12,7 @@ export class AuthorizationService extends ApiBase {
   }
 
   static login(email, password) {
+    console.log('the path is:', this.getPath('user/login'));
     return HttpService.post(this.getPath('user/login'), {
       email,
       password

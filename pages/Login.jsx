@@ -48,7 +48,7 @@ export class Login extends React.Component {
     }
 
     LoaderService.show();
-
+    console.log('authorizing')
     AuthorizationService.login(this.state.email, this.state.password)
       .then(result => {
         console.log('result', result);

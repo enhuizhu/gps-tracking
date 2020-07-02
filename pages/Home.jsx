@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import MapView from 'react-native-maps';
 // import Geolocation from '@react-native-community/geolocation';
-import GetLocation from 'react-native-get-location'
+import * as Location from 'expo-location';
 
 
 export class Home extends React.Component {
@@ -11,26 +11,42 @@ export class Home extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log('component mount');
+    // Geolocation.getCurrentPosition(info => console.log(info));
+    try {
+      let { status } = await Location.requestPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert('Permission to access location was denied');
+        return ;
+      }
+      
+      let location = await Location.getCurrentPositionAsync({});
+      console.log('location', location);
+    } catch(e) {
+      console.log('geolocation error', e);
+    }
+    
+    // Alert.alert(location);
     // Geolocation.getCurrentPosition(info => {
     //   console.log('info', info);
     // });
-    navigator.geolocation.getCurrentPosition((userLocation) => {
-      console.log('user location', userLocation);
-    });
+    // navigator.geolocation.getCurrentPosition((userLocation) => {
+    //   console.log('user location', userLocation);
+    // });
+    
 
-    GetLocation.getCurrentPosition({
-      enableHighAccuracy: true,
-      timeout: 15000,
-    })
-    .then(location => {
-        console.log('geo location',location);
-    })
-    .catch(error => {
-        const { code, message } = error;
-        console.warn(code, message);
-    })
+    // GetLocation.getCurrentPosition({
+    //   enableHighAccuracy: true,
+    //   timeout: 15000,
+    // })
+    // .then(location => {
+    //     console.log('geo location',location);
+    // })
+    // .catch(error => {
+    //     const { code, message } = error;
+    //     console.warn(code, message);
+    // })
   }
 
   getInitialState() {
